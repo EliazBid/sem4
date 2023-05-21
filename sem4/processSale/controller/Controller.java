@@ -50,6 +50,7 @@ public class Controller {
 	 * Adds and or increases the quantity of the item to the sale and prints the item information.
 	 * @param itemIdentifier The identifier of the item, e.g. barcode
 	 * @throws ItemNotFoundException If the item is not found in the inventory system
+	 * @throws DatabaseFailureException If the database is not reachable
 	 */
 	public void scanItem(int itemIdentifier) throws ItemNotFoundException, DatabaseFailureException {
 

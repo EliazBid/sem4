@@ -23,6 +23,7 @@ public class View {
 	 * scanItem() is called 5 times to simulate 5 items being scanned.
 	 * Numbers 1-10 are used to simulate item identifiers.
 	 * @throws ItemNotFoundException if an item with the specified identifier does not exist.
+	 * @throws DatabaseFailureException if the database is not reachable.
 	 */
 	public void runProgram() throws ItemNotFoundException, DatabaseFailureException{
 		contr.startSale();
@@ -64,7 +65,7 @@ public class View {
 		}
 
 		try{
-			contr.scanItem(303); 
+			contr.scanItem(666); 
 		}
 		catch (DatabaseFailureException exc) {
 			System.out.println(exc.getMessage() );

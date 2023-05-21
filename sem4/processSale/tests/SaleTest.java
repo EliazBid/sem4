@@ -9,7 +9,7 @@ import processSale.model.Sale;
 import static org.junit.Assert.*;
 
 public class SaleTest {
-
+    
 
     @Test
     public void addItemTest() {
