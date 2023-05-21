@@ -1,6 +1,8 @@
 package processSale.controller;
 
 import processSale.model.Sale;
+import processSale.integration.DatabaseFailureException;
+import processSale.integration.ItemNotFoundException;
 import processSale.integration.ExternalAccountingSystem;
 import processSale.integration.ExternalInventorySystem;
 import processSale.model.CashRegister;
@@ -10,7 +12,6 @@ import processSale.integration.Printer;
 import processSale.integration.RegistryCreator;
 import processSale.integration.ItemDTO;
 import processSale.model.Amount;
-import processSale.integration.ItemNotFoundException;
 
 public class Controller {
 
@@ -50,7 +51,7 @@ public class Controller {
 	 * @param itemIdentifier The identifier of the item, e.g. barcode
 	 * @throws ItemNotFoundException If the item is not found in the inventory system
 	 */
-	public void scanItem(int itemIdentifier) throws ItemNotFoundException {
+	public void scanItem(int itemIdentifier) throws ItemNotFoundException, DatabaseFailureException {
 
 		ItemDTO foundItem = externalInventorySystem.findItem(itemIdentifier);
 		sale.addItem(foundItem);

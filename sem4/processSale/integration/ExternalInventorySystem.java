@@ -20,7 +20,10 @@ public class ExternalInventorySystem {
 	 * @return The item.
 	 * @throws ItemNotFoundException If the item is not found in the inventory.
 	 */
-	public ItemDTO findItem(int itemIdentifier) throws ItemNotFoundException{
+	public ItemDTO findItem(int itemIdentifier) throws ItemNotFoundException, DatabaseFailureException{
+		if (itemIdentifier == 303) {
+			throw new DatabaseFailureException("Database failure, please try again.\n");
+		}
 		for (ItemDTO item : inventory) {
 			if (item.getIdentifier() == itemIdentifier) {
 				return item;

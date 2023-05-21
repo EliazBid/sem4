@@ -2,6 +2,7 @@ package processSale.view;
 
 import processSale.controller.Controller;
 import processSale.integration.ItemNotFoundException;
+import processSale.integration.DatabaseFailureException;
 import processSale.model.Amount;
 
 public class View {
@@ -23,43 +24,49 @@ public class View {
 	 * Numbers 1-10 are used to simulate item identifiers.
 	 * @throws ItemNotFoundException if an item with the specified identifier does not exist.
 	 */
-	public void runProgram() throws ItemNotFoundException{
+	public void runProgram() throws ItemNotFoundException, DatabaseFailureException{
 		contr.startSale();
 		System.out.println("New sale started!\n");
+
 		try{
 			contr.scanItem(1); 
 		}
 		catch (ItemNotFoundException exc) {
 			System.out.println(exc.getMessage());
 		}
+
 		try{
 			contr.scanItem(2); 
 		}
 		catch (ItemNotFoundException exc) {
 			System.out.println(exc.getMessage());
 		}
+
 		try{
 			contr.scanItem(3); 
 		}
 		catch (ItemNotFoundException exc) {
 			System.out.println(exc.getMessage() );
 		}
+
 		try{
 			contr.scanItem(5); 
 		}
 		catch (ItemNotFoundException exc) {
 			System.out.println(exc.getMessage() );
 		}
+
 		try{
 			contr.scanItem(11); 
 		}
 		catch (ItemNotFoundException exc) {
 			System.out.println(exc.getMessage() );
 		}
+
 		try{
 			contr.scanItem(303); 
 		}
-		catch (ItemNotFoundException exc) {
+		catch (DatabaseFailureException exc) {
 			System.out.println(exc.getMessage() );
 		}
 		contr.endSale(); 
