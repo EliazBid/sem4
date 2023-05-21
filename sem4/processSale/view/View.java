@@ -33,42 +33,42 @@ public class View {
 			contr.scanItem(1); 
 		}
 		catch (ItemNotFoundException exc) {
-			System.out.println(exc.getMessage());
+			System.out.println("Item not found, please try again.");
 		}
 
 		try{
 			contr.scanItem(2); 
 		}
 		catch (ItemNotFoundException exc) {
-			System.out.println(exc.getMessage());
+			System.out.println("Item not found, please try again.");
 		}
 
 		try{
 			contr.scanItem(3); 
 		}
 		catch (ItemNotFoundException exc) {
-			System.out.println(exc.getMessage() );
+			System.out.println("Item not found, please try again.");
 		}
 
 		try{
 			contr.scanItem(5); 
 		}
 		catch (ItemNotFoundException exc) {
-			System.out.println(exc.getMessage() );
+			System.out.println("Item not found, please try again.");
 		}
 
 		try{
 			contr.scanItem(11); 
 		}
 		catch (ItemNotFoundException exc) {
-			System.out.println(exc.getMessage() );
+			System.out.println("Item not found, please try again.");
 		}
 
 		try{
 			contr.scanItem(666); 
 		}
 		catch (DatabaseFailureException exc) {
-			System.out.println(exc.getMessage() );
+			System.out.println("Item not found, please try again.");
 		}
 		contr.endSale(); 
 		contr.enterAmountPaid(amount); 

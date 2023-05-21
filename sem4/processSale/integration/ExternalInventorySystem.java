@@ -23,7 +23,7 @@ public class ExternalInventorySystem {
 	 */
 	public ItemDTO findItem(int itemIdentifier) throws ItemNotFoundException, DatabaseFailureException{
 		if (itemIdentifier == 666) {
-			throw new DatabaseFailureException("Database failure, please try again.\n");
+			throw new DatabaseFailureException("Database not reached\n");
 		}
 		for (ItemDTO item : inventory) {
 			if (item.getIdentifier() == itemIdentifier) {
