@@ -23,14 +23,14 @@ public class ExternalInventorySystem {
 	 */
 	public ItemDTO findItem(int itemIdentifier) throws ItemNotFoundException, DatabaseFailureException{
 		if (itemIdentifier == 666) {
-			throw new DatabaseFailureException("Database not reached\n");
+			throw new DatabaseFailureException("Database not reached, check database status.");
 		}
 		for (ItemDTO item : inventory) {
 			if (item.getIdentifier() == itemIdentifier) {
 				return item;
 			}
 		}
-		throw new ItemNotFoundException("Item with identifier " + itemIdentifier + " not found.\n");
+		throw new ItemNotFoundException("Item with identifier " + itemIdentifier + " not found.");
 	}
 
 	/**
