@@ -34,7 +34,7 @@ public class View {
 	 * @throws ItemNotFoundException if an item with the specified identifier does not exist.
 	 * @throws DatabaseFailureException if the database is not reachable. This exception is hardcoded to trigger with item identifier 666.
 	 */
-	public void runProgram() throws ItemNotFoundException, DatabaseFailureException{
+	public void runProgram(){
 		contr.startSale();
 		System.out.println("New sale started!\n");
 
@@ -43,7 +43,13 @@ public class View {
 		}
 		catch (ItemNotFoundException exc) {
 			setLogger(consoleLogger);
-			logger.log("Item not found, please try again.\n");;
+			logger.log("Item not found, please try again.\n");
+		}
+		catch (DatabaseFailureException exc) {
+			setLogger(fileLogger);
+			logger.log("Database could not be reached.");
+			setLogger(consoleLogger);
+			logger.log("An error has occured. Contact the staff.\n");
 		}
 
 		try{
@@ -51,7 +57,13 @@ public class View {
 		}
 		catch (ItemNotFoundException exc) {
 			setLogger(consoleLogger);
-			logger.log("Item not found, please try again.\n");;
+			logger.log("Item not found, please try again.\n");
+		}
+		catch (DatabaseFailureException exc) {
+			setLogger(fileLogger);
+			logger.log("Database could not be reached.");
+			setLogger(consoleLogger);
+			logger.log("An error has occured. Contact the staff.\n");
 		}
 
 		try{
@@ -59,7 +71,13 @@ public class View {
 		}
 		catch (ItemNotFoundException exc) {
 			setLogger(consoleLogger);
-			logger.log("Item not found, please try again.\n");;
+			logger.log("Item not found, please try again.\n");
+		}
+		catch (DatabaseFailureException exc) {
+			setLogger(fileLogger);
+			logger.log("Database could not be reached.");
+			setLogger(consoleLogger);
+			logger.log("An error has occured. Contact the staff.\n");
 		}
 
 		try{
@@ -67,7 +85,13 @@ public class View {
 		}
 		catch (ItemNotFoundException exc) {
 			setLogger(consoleLogger);
-			logger.log("Item not found, please try again.\n");;
+			logger.log("Item not found, please try again.\n");
+		}
+		catch (DatabaseFailureException exc) {
+			setLogger(fileLogger);
+			logger.log("Database could not be reached.");
+			setLogger(consoleLogger);
+			logger.log("An error has occured. Contact the staff.\n");
 		}
 
 		try{
@@ -77,15 +101,25 @@ public class View {
 			setLogger(consoleLogger);
 			logger.log("Item not found, please try again.\n");
 		}
+		catch (DatabaseFailureException exc) {
+			setLogger(fileLogger);
+			logger.log("Database could not be reached.");
+			setLogger(consoleLogger);
+			logger.log("An error has occured. Contact the staff.\n");
+		}
 
 		try{
 			contr.scanItem(666); 
+		}
+		catch (ItemNotFoundException exc) {
+			setLogger(consoleLogger);
+			logger.log("Item not found, please try again.\n");
 		}
 		catch (DatabaseFailureException exc) {
 			setLogger(fileLogger);
 			logger.log("Database could not be reached.");
 			setLogger(consoleLogger);
-			logger.log("Something went wrong, please try again.\n");
+			logger.log("An error has occured. Contact the staff.\n");
 		}
 		
 		contr.endSale(); 
