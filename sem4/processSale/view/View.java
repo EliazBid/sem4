@@ -1,6 +1,5 @@
 package processSale.view;
 
-import java.io.File;
 import processSale.controller.Controller;
 import processSale.integration.ItemNotFoundException;
 import processSale.integration.DatabaseFailureException;
