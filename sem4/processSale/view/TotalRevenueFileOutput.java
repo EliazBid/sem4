@@ -27,9 +27,9 @@ private void printSaleRevenueToFile(){
     try {
         logStream = new PrintWriter(new FileWriter(LOG_FILE_NAME), true);
     } 
-    catch (IOException exception) {
+    catch (IOException ioe) {
         System.out.println("CAN NOT LOG.");
-        //ioe.printStackTrace();
+        ioe.printStackTrace();
     }
     logStream.println("Total revenue: " + totalRevenue + " Occured at: " + LocalTime.now());
 }
