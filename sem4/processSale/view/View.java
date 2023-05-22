@@ -111,15 +111,15 @@ public class View {
 		try{
 			contr.scanItem(666); 
 		}
-		catch (ItemNotFoundException exc) {
-			setLogger(consoleLogger);
-			logger.log("Item not found, please try again.\n");
-		}
 		catch (DatabaseFailureException exc) {
 			setLogger(fileLogger);
 			logger.log("Database could not be reached.");
 			setLogger(consoleLogger);
 			logger.log("An error has occured. Contact the staff.\n");
+		}
+		catch (ItemNotFoundException exc) {
+			setLogger(consoleLogger);
+			logger.log("Item not found, please try again.\n");
 		}
 		
 		contr.endSale(); 
