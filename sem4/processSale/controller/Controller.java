@@ -49,7 +49,6 @@ public class Controller {
 	 */
 	public void startSale() {
 		sale = new Sale();
-		sale.addSaleObservers(saleObservers);
 	}
 
 	/**
