@@ -122,7 +122,7 @@ public class Sale {
 
 	}
 
-	public void addSaleObservers(List<SaleObserver> observers) {
+	public void sendSaleObserverList(List<SaleObserver> observers) {
 		saleObservers.addAll(observers);
 	}
 

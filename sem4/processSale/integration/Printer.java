@@ -17,7 +17,7 @@ public class Printer {
  	 */
 	public void printReceipt(Receipt receipt) {
 		System.out.println("===========================");
-		System.out.println("Reciept:");
+		System.out.println("Receipt:");
 		System.out.println("The total is: " + String.format("%.2f", receipt.getRunningTotal().getAmount()));
 		System.out.println("The change is: " + String.format("%.2f", receipt.getChange().getAmount()));
 		System.out.println("The time of sale is: " + receipt.getTimeOfSale());
