@@ -11,7 +11,7 @@ public class FileLogger implements Logger {
     private PrintWriter logStream;
 
     /**
-     * Creates a new instance of logStream.
+     * Creates a new instance of FileLogger.
      */
     public FileLogger() {
         try {
@@ -23,6 +23,10 @@ public class FileLogger implements Logger {
         }
     }
 
+    /**
+     * Prints a message to <code>System.out</code>.
+     * @param msg The message to be logged.
+     */
     @Override
     public void log(String msg) {
         logStream.println(msg + " Occured at: " + LocalTime.now());
