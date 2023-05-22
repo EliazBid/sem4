@@ -44,7 +44,7 @@ public class Controller {
     }
 
 	/**
-	 * Starts a new sale.
+	 * Starts a new sale. 
 	 */
 	public void startSale() {
 		sale = new Sale();
