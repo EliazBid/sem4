@@ -1,5 +1,6 @@
 package processSale.view;
 
+import java.io.File;
 import processSale.controller.Controller;
 import processSale.integration.ItemNotFoundException;
 import processSale.integration.DatabaseFailureException;
@@ -7,6 +8,9 @@ import processSale.model.Amount;
 
 public class View {
 
+	private Logger logger;
+	private FileLogger fileLogger = new FileLogger();
+	private ConsoleLogger consoleLogger = new ConsoleLogger();
 	private Controller contr;
 	private Amount amount = new Amount(200); // amount is the money given by the customer
 
@@ -16,6 +20,10 @@ public class View {
 	 */
 	public View(Controller contr) {
 		this.contr = contr;
+	}
+
+	private void setLogger(Logger logger ) {
+		this.logger = logger;
 	}
 
 	/**
@@ -33,42 +41,50 @@ public class View {
 			contr.scanItem(1); 
 		}
 		catch (ItemNotFoundException exc) {
-			System.out.println("Item not found, please try again.\n");
+			setLogger(consoleLogger);
+			logger.log("Item not found, please try again.\n");;
 		}
 
 		try{
 			contr.scanItem(2); 
 		}
 		catch (ItemNotFoundException exc) {
-			System.out.println("Item not found, please try again.\n");
+			setLogger(consoleLogger);
+			logger.log("Item not found, please try again.\n");;
 		}
 
 		try{
 			contr.scanItem(3); 
 		}
 		catch (ItemNotFoundException exc) {
-			System.out.println("Item not found, please try again.\n");
+			setLogger(consoleLogger);
+			logger.log("Item not found, please try again.\n");;
 		}
 
 		try{
 			contr.scanItem(5); 
 		}
 		catch (ItemNotFoundException exc) {
-			System.out.println("Item not found, please try again.\n");
+			setLogger(consoleLogger);
+			logger.log("Item not found, please try again.\n");;
 		}
 
 		try{
 			contr.scanItem(11); 
 		}
 		catch (ItemNotFoundException exc) {
-			System.out.println("Item not found, please try again.\n");
+			setLogger(consoleLogger);
+			logger.log("Item not found, please try again.\n");
 		}
 
 		try{
 			contr.scanItem(666); 
 		}
 		catch (DatabaseFailureException exc) {
-			System.out.println("Something went wrong, please try again.\n");
+			setLogger(fileLogger);
+			logger.log("Database could not be reached.");
+			setLogger(consoleLogger);
+			logger.log("Something went wrong, please try again.\n");
 		}
 		
 		contr.endSale(); 
