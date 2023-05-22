@@ -20,6 +20,8 @@ public class View {
 	 */
 	public View(Controller contr) {
 		this.contr = contr;
+		contr.addSaleObserver(new TotaleRevenueView());
+		contr.addSaleObserver(new TotalRevenueFileOutput());
 	}
 
 	private void setLogger(Logger logger ) {

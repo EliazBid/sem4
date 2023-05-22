@@ -31,7 +31,6 @@ public class Controller {
 	private Printer printer;
 
 	private List<SaleObserver> saleObservers = new ArrayList<>();
-	
 	/**
      * Creates an instance of the controller where the references to externals systems are saved.
 	 * @param creator The creator of the external systems.
@@ -49,6 +48,11 @@ public class Controller {
 	 */
 	public void startSale() {
 		sale = new Sale();
+		sale.addSaleObservers(saleObservers);
+	}
+
+	public void addSaleObserver(SaleObserver obs) {
+		saleObservers.add(obs);
 	}
 
 	/**

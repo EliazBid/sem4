@@ -119,6 +119,11 @@ public class Sale {
 		for (SaleObserver obs : saleObservers) {
 			obs.UpdateTotalSaleRevenue(runningTotal);
 		}
+
+	}
+
+	public void addSaleObservers(List<SaleObserver> observers) {
+		saleObservers.addAll(observers);
 	}
 
 	/**
