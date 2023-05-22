@@ -1,5 +1,6 @@
 package processSale.model;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.time.LocalTime;
 import processSale.integration.ItemDTO;
@@ -16,6 +17,8 @@ public class Sale {
 	private ArrayList<ItemDTO> itemList;
 
 	private Receipt receipt;
+
+	private List<SaleObserver> saleObservers = new ArrayList<>();
 
 	/**
 	 * Creates a new instance of a sale. The time of the sale is set to the current time. A new receipt is created.
@@ -102,7 +105,6 @@ public class Sale {
 			itemList.get(index).increaseQuantity();
 		}
 	}
-
 	/**
 	 * Calls method to calculate total cost and saves the cashpayment.
 	 * @param toPay money given by customer
@@ -110,8 +112,23 @@ public class Sale {
 	 */
 	public void pay(CashPayment toPay, Sale sale) {
 		toPay.calculateTotalCost(sale);
+		notifyObservers();
 	}
-	
+
+	private void notifyObservers() {
+		for (SaleObserver obs : saleObservers) {
+			obs.UpdateTotalSaleRevenue(runningTotal);
+		}
+	}
+
+	/**
+	 * Adds a list of sale observers to the sale.
+	 * @param observers list of sale observers
+	 */
+	public void addSaleObservers(List<SaleObserver> observers) {
+		saleObservers.addAll(observers);
+	}
+
 	/**
 	 * Creates a finalized receipt, prints it, and returns the receipt.
 	 * @param sale current sale reference

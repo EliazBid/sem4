@@ -12,6 +12,9 @@ import processSale.integration.Printer;
 import processSale.integration.RegistryCreator;
 import processSale.integration.ItemDTO;
 import processSale.model.Amount;
+import processSale.model.SaleObserver;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -26,6 +29,8 @@ public class Controller {
 	private Receipt receipt;
 
 	private Printer printer;
+
+	private List<SaleObserver> saleObservers = new ArrayList<>();
 	
 	/**
      * Creates an instance of the controller where the references to externals systems are saved.
@@ -44,6 +49,7 @@ public class Controller {
 	 */
 	public void startSale() {
 		sale = new Sale();
+		sale.addSaleObservers(saleObservers);
 	}
 
 	/**
