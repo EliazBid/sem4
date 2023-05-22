@@ -122,14 +122,6 @@ public class Sale {
 	}
 
 	/**
-	 * Adds a list of sale observers to the sale.
-	 * @param observers list of sale observers
-	 */
-	public void addSaleObservers(List<SaleObserver> observers) {
-		saleObservers.addAll(observers);
-	}
-
-	/**
 	 * Creates a finalized receipt, prints it, and returns the receipt.
 	 * @param sale current sale reference
 	 * @param printer printer reference
