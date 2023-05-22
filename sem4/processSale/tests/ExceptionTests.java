@@ -1,23 +1,12 @@
 package processSale.tests;
 
-import processSale.view.*;
-import processSale.model.*;
-import processSale.controller.*;
+
 import processSale.integration.*;
-import processSale.integration.ItemNotFoundException;
-import processSale.integration.DatabaseFailureException;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-
-
-
 
 /**
  * tests both the ItemNotFoundException and the DatabaseFailureException using the findItem function in ExternalInventorySystem as both exceptions are thrown there.
@@ -26,16 +15,6 @@ import org.junit.jupiter.api.BeforeEach;
  */
 
 public class ExceptionTests {
-    
-    @BeforeEach
-    public void setUp() {
-        ExternalInventorySystem inventory = new ExternalInventorySystem();
-    }
-
-    @AfterEach
-    public void tearDown() {
-        ExternalInventorySystem inventory = null;
-    }
 
 
     @Test
