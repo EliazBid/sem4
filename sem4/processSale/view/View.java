@@ -29,8 +29,8 @@ public class View {
 
 	/**
 	 * Simulates a user input that generates calls to all system operations.
-	 * scanItem() is called 5 times to simulate 5 items being scanned.
-	 * Numbers 1-10 are used to simulate item identifiers.
+	 * scanItem() is called 6 times to simulate 6 items being scanned.
+	 * Numbers 1-10 are used to simulate existing item identifiers.
 	 * @throws ItemNotFoundException if an item with the specified identifier does not exist.
 	 * @throws DatabaseFailureException if the database is not reachable. This exception is hardcoded to trigger with item identifier 666.
 	 */
