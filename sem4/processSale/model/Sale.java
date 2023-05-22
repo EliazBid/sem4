@@ -122,6 +122,10 @@ public class Sale {
 
 	}
 
+	/**
+	 * Adds a list of observers to the sale.
+	 * @param observers
+	 */
 	public void sendSaleObserverList(List<SaleObserver> observers) {
 		saleObservers.addAll(observers);
 	}
